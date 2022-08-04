@@ -17,6 +17,6 @@ for i in star_data:
   name.append(i[1])
 
 for index,name in enumerate(name):
-  g=(float(mass[index]) * 5.972e+24)/(float(radius[index]) * float(radius[index]) * (6371000**2)) *6.674e-11
+  g=(float(mass[index])) *6.17/100000000000/(float(radius[index]) * float(radius[index]) ) 
   gravity.append(g) 
 
