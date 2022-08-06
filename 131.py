@@ -10,13 +10,17 @@ star_data=name[1:]
 gravity=[]
 mass=[]
 radius=[]
-name=[]
+star_name=[]
 for i in star_data:
-  mass.append(i[3])
-  radius.apeend(i[4])
-  name.append(i[1])
+  mass.append(star_data[3])
+  radius.append(star_data[4])
+  name.append(star_data[1])
 
-for index,name in enumerate(name):
+star_gravity=[]
+
+for index,name in enumerate(star_name):
   g=(float(mass[index])) *6.17/100000000000/(float(radius[index]) * float(radius[index]) ) 
-  gravity.append(g) 
+  #g=(float(mass[index])*6.17/1000) /(float(radius[index]) * float(radius[index]) ) 
+  star_gravity.append(g) 
 
+f.to_csv("star_with_gravity.csv")
