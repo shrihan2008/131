@@ -1,15 +1,17 @@
+def convert_to_si(radius,mass): 
+  for i in range(0,len(radius)-1): 
+    radius[i] = radius[i]*6.957e+8 
+    mass[i] = mass[i]*1.989e+30 
+
 import plotly.express as px
 import pandas as pd
 name1=[]
 import csv
-with open("dwarf_stars.csv",'r+') as file:
-  f1=csv.reader(file)
-  for a  in f1:
-    name1.append(a)
+f1=pd.read_csv('dwarf_stars.csv')
 star_data=name1[1:]
 gravity=[]
-mass=[]
-radius=[]
+mass=f1['Mass'].to_list()
+radius =f1['Radius'].to_list()
 star_name=[]
 for i in star_data:
   mass.append(star_data[3])
@@ -19,11 +21,11 @@ for i in star_data:
 star_gravity=[]
 
 for index,name in enumerate(star_name):
-  g=(float(mass[index])) *6.17/100000000000/(float(radius[index]) * float(radius[index]) ) 
+  g=convert_to_si(radius,mass)
   print(g)
   #g=(float(mass[index])*6.17/1000) /(float(radius[index]) * float(radius[index]) ) 
   star_gravity.append(g)
   
   
-file.to_csv("star_with_gravity.csv",index=False) 
-
+f1.to_csv("star_with_gravity.csv",index=False) 
+    
