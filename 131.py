@@ -7,11 +7,11 @@ import plotly.express as px
 import pandas as pd
 name1=[]
 import csv
-f1=pd.read_csv('dwarf_stars.csv')
+f=pd.read_csv('total_stars.csv')
 star_data=name1[1:]
 gravity=[]
-mass=f1['Mass'].to_list()
-radius =f1['Radius'].to_list()
+mass=f['Mass'].to_list()
+radius =f['Radius'].to_list()
 star_name=[]
 for i in star_data:
   mass.append(star_data[3])
@@ -27,5 +27,5 @@ for index,name in enumerate(star_name):
   star_gravity.append(g)
   
   
-f1.to_csv("star_with_gravity.csv",index=False) 
+f.to_csv("star_with_gravity.csv",index=False) 
     
